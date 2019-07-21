@@ -17,7 +17,7 @@
             <span
               v-show="!collapse"
               style="white-space: nowrap;text-overflow:ellipsis;overflow:hidden;margin-left:4px"
-            >卡密平台</span>
+            >VUE ADMIN</span>
           </div>
           <menu-item v-for="item of menuRoutes" :key="item.path" :data="item"></menu-item>
         </el-menu>
