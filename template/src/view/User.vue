@@ -1,6 +1,6 @@
 <template>
   <div style="height:100%;">
-  
+    USER
   </div>
 </template>
 
