@@ -1,0 +1,22 @@
+{
+  "schema": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "message": "project name"
+    },
+    "port": {
+      "type": "string",
+      "required": false,
+      "message": "port",
+      "default": "18080"
+    },
+    "vcharts": {
+      "type": "confirm",
+      "message": "use v-charts"
+    }
+  },
+  "filters": {
+    "src/plugins/vcharts.js": "vcharts"
+  }
+}

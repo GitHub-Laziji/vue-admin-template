@@ -1,0 +1,39 @@
+{
+  "name": "{{name}}",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve  --port {{port}}",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "clipboard": "^2.0.4",
+    "core-js": "^2.6.5",
+    "element-ui": "^2.4.5",
+    "moment": "^2.24.0",
+    "node-sass": "^4.12.0",{{#vcharts}}
+    "echarts": "^4.2.1",
+    "v-charts": "^1.19.0",{{/vcharts}}
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.6",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.9.0",
+    "@vue/cli-service": "^3.9.0",
+    "sass-loader": "^7.1.0",
+    "vue-cli-plugin-element": "^1.0.1",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
