@@ -193,9 +193,7 @@
               :label="item.title"
               :key="item.name"
               :prop="item.name"
-              :rules="[
-                { required: item.form.required, message: `请${item.form.type==='select'?'选择':'输入'}${item.title}`, trigger: 'change' }
-              ]"
+              :rules="item.form.rules || item.form.required && [{ required: item.form.required, message: `请${item.form.type==='select'?'选择':'输入'}${item.title}`, trigger: 'change' }]"
             >
               <el-select
                 v-model="updateForm.form[item.name]"
