@@ -441,14 +441,14 @@ export default {
 
 <style module>
 .tool_input {
-  width: 150px;
-  margin-left: 8px;
+  width: 150px !important;
+  margin-left: 8px !important;
 }
 .tool_button_right {
-  margin-left: 8px;
+  margin-left: 8px !important;
 }
 .tool_button_left {
-  margin-right: 8px;
+  margin-right: 8px !important;
 }
 .d_flex {
   display: flex;
