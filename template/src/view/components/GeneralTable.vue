@@ -79,8 +79,9 @@
           :show-overflow-tooltip="item.table.textLengthLimit"
         >
           <template slot-scope="scope">
+            <component v-if="item.table.render" :is="{name:item.name,render:item.table.render(scope.row)}"></component>
             <span
-              v-if="scope.row[item.name]===null||scope.row[item.name]===undefined"
+              v-else-if="scope.row[item.name]===null||scope.row[item.name]===undefined"
               style="color:#909399"
             >
               <i>NULL</i>
