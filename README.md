@@ -36,11 +36,11 @@ vue init GitHub-Laziji/vue-admin-template admin
     return {
       columns: [
         {
-          title: "ID",
-          name: "id",
-          table: {
-            width: 100,
-            render: record =>
+          title: "ID", //标题
+          name: "id", //字段名(key) 不可重复
+          table: { //显示在表格中的配置, 使用默认配置可以简单地使用 table: true
+            width: 100, //表格宽度, 类似的属性有 maxWidth, minWidth
+            render: record => //高度自定义表格内容, 详细使用查看Vue官方文档 https://cn.vuejs.org/v2/guide/render-function.html
               function(h) {
                 return h("h1", record.id);
               }
@@ -54,10 +54,21 @@ vue init GitHub-Laziji/vue-admin-template admin
         {
           title: "COL2",
           name: "col2",
-          query: true,
+          query: {  //是否允许查询, 使用默认配置可以简单地使用 query: true
+            type: "input", //可选select, input, 选择select需配置valueMapping
+            name: "col2" //自定义查询参数名, 在list()回调中接收, 例如字段允许模糊查询可设name为'col2.like'然后在list()中自行处理
+          },
           table: {
-            textLengthLimit: true
+            textLengthLimit: true //表格内容过长自动隐藏
             width: 100,
+          },
+          //valueMapping: () => { ... }
+          //form: { save:..., update:... }
+        },
+        {
+          title: "操作", //name为空的列为最后一行操作栏
+          table: {
+            width: 120
           }
         }
       ]
