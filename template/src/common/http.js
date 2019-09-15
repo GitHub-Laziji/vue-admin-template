@@ -8,6 +8,7 @@ const service = axios.create({
 
 service.interceptors.response.use(
   response => {
+    //Custom processing
     let data = response.data;
     switch (data.code) {
       case 200:
