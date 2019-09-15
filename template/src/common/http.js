@@ -47,6 +47,14 @@ service.interceptors.response.use(
         break;
     }
     return Promise.reject('error')
+  },
+  error => {
+    if (/timeout of \d+ms exceeded/.test(error.message)) {
+      Vue.prototype.$message.error("请求超时");
+    } else {
+      Vue.prototype.$message.error("请求异常");
+    }
+    return Promise.reject('error')
   }
 );
 export class Http {
