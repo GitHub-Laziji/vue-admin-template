@@ -5,6 +5,7 @@ import store from './store'
 import FormatUtils from './common/format_utils'
 import ApiUtils from './common/api_utils'
 import GeneralTable from "./view/components/GeneralTable"
+import { Http } from "./common/http"
 import './plugins/element.js'{{#vcharts}}
 import './plugins/vcharts'{{/vcharts}}
 
@@ -21,6 +22,8 @@ try {
 Vue.prototype.$toLogin = () => {
   location.href = Vue.prototype.$env.loginUrl;
 }
+
+Vue.prototype.$http = Http;
 
 Vue.prototype.$utils = {
   format: FormatUtils,
