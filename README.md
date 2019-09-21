@@ -25,7 +25,7 @@ vue init GitHub-Laziji/vue-admin-template admin
 ```html
 <template>
   <div>
-    <general-table :list="list" :columns="columns"></general-table>
+    <general-table :list="list" :save="save" :columns="columns"></general-table>
   </div>
 </template>
 ```
@@ -49,7 +49,12 @@ vue init GitHub-Laziji/vue-admin-template admin
         {
           title: "COL1",
           name: "col1",
-          table: true
+          table: true,
+          form: {
+            type: "textarea",
+            save: true,
+            update: false
+          }
         },
         {
           title: "COL2",
@@ -90,6 +95,12 @@ vue init GitHub-Laziji/vue-admin-template admin
           list: list
         });
       });
+    },
+    save(form) {
+      return new Promise((resolve, reject) => {
+        //this.$ttp.post(...)
+        resolve();
+      }
     }
   }
 }
