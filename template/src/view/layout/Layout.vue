@@ -58,9 +58,11 @@
             </el-breadcrumb>
           </div>
           <div :class="$style.main">
-            <transition name="fade">
-              <router-view></router-view>
-            </transition>
+            <div :class="$style.main_body">
+              <transition name="fade">
+                <router-view></router-view>
+              </transition>
+            </div>
           </div>
         </el-main>
       </el-container>
@@ -157,13 +159,17 @@ export default {
 .main {
   border: 1px solid #ebeef5;
   border-radius: 4px;
-  overflow-y: auto;
+  overflow-y: hidden;
   background: #fff;
   padding: 16px;
   box-sizing: border-box;
   height: calc(100% - 32px);
 }
-.main::-webkit-scrollbar {
+.main_body {
+  height: 100%;
+  overflow-y: auto;
+}
+.main_body::-webkit-scrollbar {
   width: 0 !important;
 }
 .avatar {
