@@ -5,7 +5,6 @@ import store from './store'
 import FormatUtils from './common/format_utils'
 import ApiUtils from './common/api_utils'
 import GeneralTable from "./view/components/GeneralTable"
-import { Http } from "./common/http"
 import './plugins/element.js'{{#vcharts}}
 import './plugins/vcharts'{{/vcharts}}
 
@@ -14,7 +13,7 @@ Vue.config.productionTip = false
 Vue.component('general-table', GeneralTable);
 
 try {
-  Vue.prototype.$env = require(`./config/env.${process.env.NODE_ENV}.js`);
+  Vue.prototype.$env = require(`./config/env.${process.env.NODE_ENV}`);
 } catch{
 
 }
@@ -23,7 +22,7 @@ Vue.prototype.$toLogin = () => {
   location.href = Vue.prototype.$env.loginUrl;
 }
 
-Vue.prototype.$http = Http;
+Vue.prototype.$http = require("./common/http").Http;
 
 Vue.prototype.$utils = {
   format: FormatUtils,
