@@ -266,6 +266,9 @@ export default {
     },
     remove: {
       type: Function
+    },
+    initQueryParams: {
+      type: Object
     }
   },
   data() {
@@ -300,6 +303,11 @@ export default {
     };
   },
   mounted() {
+    if (this.initQueryParams) {
+      for (let k in this.initQueryParams) {
+        this.query.params[k] = this.initQueryParams[k];
+      }
+    }
     let methods = [];
     let names = [];
     for (let col of this.columns) {
@@ -391,6 +399,7 @@ export default {
       this.$nextTick(() => {
         this.$refs["saveForm"] && this.$refs["saveForm"].resetFields();
       });
+      this.saveForm.form = {};
       this.saveForm.visible = true;
     },
     submitSave() {
@@ -408,8 +417,8 @@ export default {
       });
     },
     openUpdate(record) {
-      this.updateForm.visible = true;
       this.updateForm.form = JSON.parse(JSON.stringify(record));
+      this.updateForm.visible = true;
     },
     submitUpdate() {
       this.$refs["updateForm"].validate(valid => {
