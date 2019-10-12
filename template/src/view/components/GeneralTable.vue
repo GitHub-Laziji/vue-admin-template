@@ -19,6 +19,7 @@
                 v-if="item.query.type=='select'&&mapping[item.name]"
                 clearable
                 filterable
+                @clear="() => query.params[item.query.name || item.name] = null"
                 size="medium"
               >
                 <el-option
@@ -359,7 +360,7 @@ export default {
     },
     search() {
       this.dataLoading = true;
-      this.query.page = 0;
+      this.query.page = 1;
       this.list(this.query.params, this.query.page, this.query.limit)
         .then(result => {
           this.data.total = result.total || 0;
@@ -378,7 +379,7 @@ export default {
     },
     reset() {
       this.dataLoading = true;
-      this.query.page = 0;
+      this.query.page = 1;
       this.query.params = {};
       this.list(this.query.params, this.query.page, this.query.limit)
         .then(result => {
