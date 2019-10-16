@@ -69,7 +69,7 @@
         </template>
       </div>
     </div>
-    <el-table :class="$style.table" :data="data.list" border stripe v-loading="dataLoading">
+    <el-table :class="$style.table" :data="data.list" border stripe v-loading="dataLoading" :span-method="settings&&settings.tableSpanMethod">
       <template v-for="item of columns">
         <el-table-column
           :label="item.title"
