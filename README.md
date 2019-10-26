@@ -57,6 +57,16 @@ vue init GitHub-Laziji/vue-admin-template admin
           }
         },
         {
+          title: "自定义列",
+          name: "customize",
+          table: {
+            render:(record)=>
+              function(h){
+                return h("div",record.col1+" "+record.col2);
+              }
+          }
+        },
+        {
           title: "COL2",
           name: "col2",
           query: {  //是否允许查询, 使用默认配置可以简单地使用 query: true
