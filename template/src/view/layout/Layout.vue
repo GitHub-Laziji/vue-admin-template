@@ -58,11 +58,13 @@
             </el-breadcrumb>
           </div>
           <div :class="$style.main">
-            <div :class="$style.main_body">
-              <transition name="fade">
-                <router-view></router-view>
-              </transition>
-            </div>
+            <el-scrollbar style="height: 100%;">
+              <div style="padding-right:12px">
+                <transition name="fade">
+                  <router-view></router-view>
+                </transition>
+              </div>
+            </el-scrollbar>
           </div>
         </el-main>
       </el-container>
@@ -161,31 +163,23 @@ export default {
   border-radius: 4px;
   overflow-y: hidden;
   background: #fff;
-  padding: 16px;
+  padding: 16px 4px 16px 16px;
   box-sizing: border-box;
   height: calc(100% - 32px);
-}
-.main_body {
-  height: 100%;
-  overflow-y: auto;
-}
-.main_body::-webkit-scrollbar {
-  width: 0 !important;
 }
 .avatar {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
-.scroll {
-  height: 100%;
-  width: 100%;
-}
 </style>
 
 <style>
 #app-layout .el-menu-vertical:not(.el-menu--collapse) {
   width: 250px;
+}
+#app-layout .el-scrollbar__wrap {
+  overflow-x: hidden !important;
 }
 .fade-enter-active,
 .fade-leave-active {
