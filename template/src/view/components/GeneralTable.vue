@@ -88,7 +88,7 @@
           <template slot-scope="scope">
             <component v-if="item.table.render" :is="{name:item.name,render:item.table.render(scope.row)}"></component>
             <span
-              v-else-if="scope.row[item.name]===null||scope.row[item.name]===undefined"
+              v-else-if="isNull(rowFilter(scope.row,item))&&isNull(scope.row[item.name])"
               style="color:#909399"
             >
               <i>NULL</i>
@@ -354,13 +354,16 @@ export default {
       .finally(() => (this.dataLoading = false));
   },
   methods: {
+    isNull(value) {
+      return value === null || value === undefined;
+    },
     rowFilter(record, column) {
       let value = record[column.name];
       if (column.valueMapping) {
         value = this.mapping[column.name].map[record[column.name]];
       }
       if (typeof column.table.filter === "function") {
-        value = column.table.filter(value);
+        value = column.table.filter(value, record);
       }
       return value;
     },
