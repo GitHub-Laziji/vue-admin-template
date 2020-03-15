@@ -84,6 +84,7 @@
           :key="item.name"
           v-if="item.name&&item.table"
           :show-overflow-tooltip="item.table.textLengthLimit"
+          :align="item.table.align"
         >
           <template slot-scope="scope">
             <component v-if="item.table.render" :is="{name:item.name,render:item.table.render(scope.row)}"></component>
@@ -114,6 +115,7 @@
         :label="operatorColumn.title || '操作'"
         :min-width="operatorColumn.table.minWidth"
         :width="operatorColumn.table.width"
+        :align="operatorColumn.table.align"
       >
         <template slot-scope="scope">
           <el-tooltip content="编辑" placement="top" v-if="update">
