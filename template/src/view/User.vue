@@ -51,7 +51,7 @@ export default {
         }
         resolve({
           total: list.length,
-          list: list
+          records: list
         });
       });
     }

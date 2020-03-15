@@ -23,7 +23,7 @@
                 size="medium"
               >
                 <el-option
-                  v-for="opt in mapping[item.name].list"
+                  v-for="opt in mapping[item.name].records"
                   :key="opt.key"
                   :label="opt.value"
                   :value="opt.key"
@@ -71,7 +71,7 @@
     </div>
     <el-table 
       :class="$style.table" 
-      :data="data.list"
+      :data="data.records"
       :span-method="settings&&settings.tableSpanMethod"
       :summary-method="settings&&settings.tableSummaryMethod"
       v-loading="dataLoading" 
@@ -163,7 +163,7 @@
                 filterable
               >
                 <el-option
-                  v-for="opt in mapping[item.name].list"
+                  v-for="opt in mapping[item.name].records"
                   :key="opt.key"
                   :label="opt.value"
                   :value="opt.key"
@@ -212,7 +212,7 @@
                 filterable
               >
                 <el-option
-                  v-for="opt in mapping[item.name].list"
+                  v-for="opt in mapping[item.name].records"
                   :key="opt.key"
                   :label="opt.value"
                   :value="opt.key"
@@ -286,7 +286,7 @@ export default {
       mapping: {},
       data: {
         total: 0,
-        list: []
+        records: []
       },
       query: {
         limit: 10,
@@ -343,13 +343,13 @@ export default {
             map[item.key] = item.value;
           }
           this.$set(this.mapping, names[i], {
-            list: mappingResults[i],
+            records: mappingResults[i],
             map: map
           });
         }
 
         this.data.total = results[1].total || 0;
-        this.data.list = results[1].list || [];
+        this.data.records = results[1].records || [];
       })
       .finally(() => (this.dataLoading = false));
   },
@@ -373,7 +373,7 @@ export default {
       this.list(this.query.params, this.query.page, this.query.limit)
         .then(result => {
           this.data.total = result.total || 0;
-          this.data.list = result.list || [];
+          this.data.records = result.records || [];
         })
         .finally(() => (this.dataLoading = false));
     },
@@ -382,7 +382,7 @@ export default {
       this.list(this.query.params, this.query.page, this.query.limit)
         .then(result => {
           this.data.total = result.total || 0;
-          this.data.list = result.list || [];
+          this.data.records = result.records || [];
         })
         .finally(() => (this.dataLoading = false));
     },
@@ -393,7 +393,7 @@ export default {
       this.list(this.query.params, this.query.page, this.query.limit)
         .then(result => {
           this.data.total = result.total || 0;
-          this.data.list = result.list || [];
+          this.data.records = result.records || [];
         })
         .finally(() => (this.dataLoading = false));
     },
