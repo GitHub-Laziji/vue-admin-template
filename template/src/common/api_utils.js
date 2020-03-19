@@ -4,6 +4,9 @@ export default {
     let notEqualParams = {}
     let likeParams = {}
     for (let k in params) {
+      if (typeof params[k] == "string" && !params[k]) {
+        continue;
+      }
       let ks = k.split(".")
       if (ks.length == 1) {
         equalParams[k] = params[k]
