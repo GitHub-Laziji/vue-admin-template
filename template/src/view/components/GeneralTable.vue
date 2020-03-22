@@ -189,9 +189,12 @@
         </template>
       </el-form>
       <span slot="footer">
-        <slot name="saveFormAction" v-bind:form="saveForm.form"></slot>
-        <el-button @click="saveForm.visible = false">取消</el-button>
-        <el-button type="primary" @click="submitSave" :loading="saveForm.loading">保存</el-button>
+        <div style="display:flex;justify-content: flex-end;">
+          <slot name="saveFormAction" v-bind:form="saveForm.form"></slot>
+          <slot name="formAction" v-bind:form="saveForm.form"></slot>
+          <el-button @click="saveForm.visible = false">取消</el-button>
+          <el-button type="primary" @click="submitSave" :loading="saveForm.loading">保存</el-button>
+        </div>
       </span>
     </el-dialog>
 
@@ -245,9 +248,12 @@
         </template>
       </el-form>
       <span slot="footer">
-        <slot name="updateFormAction" v-bind:form="updateForm.form"></slot>
-        <el-button @click="updateForm.visible = false">取消</el-button>
-        <el-button type="primary" @click="submitUpdate" :loading="updateForm.loading">更新</el-button>
+        <div style="display:flex;justify-content: flex-end;">
+          <slot name="updateFormAction" v-bind:form="updateForm.form"></slot>
+          <slot name="formAction" v-bind:form="updateForm.form"></slot>
+          <el-button @click="updateForm.visible = false">取消</el-button>
+          <el-button type="primary" @click="submitUpdate" :loading="updateForm.loading">更新</el-button>
+        </div>
       </span>
     </el-dialog>
   </div>
