@@ -8,9 +8,9 @@
           class="el-menu-vertical"
           :router="true"
           :default-active="activePath"
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b"
+          background-color="#001529"
+          text-color="#ffffffa6"
+          active-text-color="#fff"
         >
           <div :class="$style.logo">
             <i class="el-icon-s-management" style="font-size:1.2rem"></i>
@@ -190,6 +190,6 @@ export default {
 }
 
 li.el-menu-item.is-active {
-  background-color: rgba(67, 74, 80, 0.6) !important;
+  background-color: #1890ff !important;
 }
 </style>
