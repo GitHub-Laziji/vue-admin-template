@@ -415,7 +415,9 @@ export default {
     },
     openSave() {
       this.$nextTick(() => {
-        this.$refs["saveForm"] && this.$refs["saveForm"].resetFields();
+        this.$nextTick(() => {
+          this.$refs["saveForm"] && this.$refs["saveForm"].clearValidate();
+        });
       });
       this.saveForm.form = {};
       this.saveForm.visible = true;
@@ -435,6 +437,11 @@ export default {
       });
     },
     openUpdate(record) {
+      this.$nextTick(() => {
+        this.$nextTick(() => {
+          this.$refs["updateForm"] && this.$refs["updateForm"].clearValidate();
+        });
+      });
       this.updateForm.form = JSON.parse(JSON.stringify(record));
       this.updateForm.visible = true;
     },
@@ -453,7 +460,7 @@ export default {
       });
     },
     removeRecord(record) {
-      this.$confirm("确认删除这条数据?").then(() => {
+      this.$confirm("确认删除这条数据?", "确认信息", { type: "warning" }).then(() => {
         this.$set(record, "REMOVE_LOADING", true);
         this.remove(record)
           .then(() => {
