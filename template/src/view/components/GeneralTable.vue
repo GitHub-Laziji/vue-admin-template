@@ -367,11 +367,11 @@ export default {
     },
     rowFilter(record, column) {
       let value = record[column.name];
-      if (column.valueMapping) {
-        value = this.mapping[column.name].map[record[column.name]];
-      }
       if (typeof column.table.filter === "function") {
         value = column.table.filter(value, record);
+      }
+      if (column.valueMapping) {
+        value = this.mapping[column.name].map[value];
       }
       return value;
     },
