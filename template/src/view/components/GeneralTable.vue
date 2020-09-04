@@ -92,7 +92,7 @@
               v-else-if="isNull(rowFilter(scope.row,item))&&isNull(scope.row[item.name])"
               style="color:#909399"
             >
-              <i>NULL</i>
+              <i>无</i>
             </span>
             <template v-else-if="item.table.type==='tag'">
               <el-tag

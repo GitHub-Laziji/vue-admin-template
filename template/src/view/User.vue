@@ -1,5 +1,5 @@
 <template>
-  <div style="height:100%;">
+  <div class="main" :class="$style.main">
     <general-table :list="list" :columns="columns"></general-table>
   </div>
 </template>
@@ -59,5 +59,9 @@ export default {
 };
 </script>
 
-<style>
+<style module>
+.main {
+  overflow: hidden;
+}
 </style>
+
