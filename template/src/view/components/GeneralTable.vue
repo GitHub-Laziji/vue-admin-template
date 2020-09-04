@@ -118,6 +118,7 @@
         :align="operatorColumn.table.align"
       >
         <template slot-scope="scope">
+          <slot name="tableAction" v-bind:row="scope.row"></slot>
           <el-tooltip content="编辑" placement="top" v-if="update">
             <el-button icon="el-icon-edit" @click="openUpdate(scope.row)" size="medium" circle></el-button>
           </el-tooltip>
@@ -130,7 +131,6 @@
               :loading="scope.row.REMOVE_LOADING"
             ></el-button>
           </el-tooltip>
-          <slot name="tableAction" v-bind:row="scope.row"></slot>
         </template>
       </el-table-column>
     </el-table>
